@@ -2,35 +2,40 @@
 using System.Collections;
 public class GameStates : MonoBehaviour
 {
-    public GameObject hudContainer;
-    public GameObject titleContainer;
-    public static bool gameActive = false;
+    public GameObject StartMenuContainer;
+    public GameObject StartMenuBox;
+    public GameObject MainMenuContainer;
     public enum displayStates
     {
-        titleScreen = 0,
-        hudScreen
+        StartMenuContainer = 0,
+        MainMenuContainer
     }    void Start()
     {
-        changeDisplayState(displayStates.titleScreen);
+        Vector2 cameraSize = new Vector2(GetComponent<Camera>().pixelWidth, GetComponent<Camera>().pixelHeight);
+        StartMenuBox.GetComponent<BoxCollider2D>().size = cameraSize;
+        changeDisplayState(displayStates.StartMenuContainer);
     }
     public void changeDisplayState(displayStates newState)
     {
-        hudContainer.SetActive(false);
-        titleContainer.SetActive(false);
+        StartMenuContainer.SetActive(false);
+        MainMenuContainer.SetActive(false);
         switch (newState)
         {
-            case displayStates.titleScreen:
-                gameActive = false;
-                titleContainer.SetActive(true);
+            case displayStates.StartMenuContainer:
+                StartMenuContainer.SetActive(true);
                 break;
-            case displayStates.hudScreen:
-                gameActive = true;
-                hudContainer.SetActive(true);
+            case displayStates.MainMenuContainer:
+                MainMenuContainer.SetActive(true);
                 break;
         }
     }
-    public void startGame()
+    public void changeToMainMenu()
     {
-        changeDisplayState(displayStates.hudScreen);
+        changeDisplayState(displayStates.MainMenuContainer);
+    }
+
+    public void changeToStartMenu()
+    {
+        changeDisplayState(displayStates.StartMenuContainer);
     }
 }
