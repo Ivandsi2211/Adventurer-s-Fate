@@ -62,7 +62,6 @@
     <Compile Include="Assets\Scripts\GameStates.cs" />
     <Compile Include="Assets\Scripts\MainMenuButton.cs" />
     <Compile Include="Assets\Scripts\MainMenuButtonController.cs" />
-    <Compile Include="Assets\Scripts\NewGameButtonController.cs" />
     <Compile Include="Assets\Scripts\StartMenuController.cs" />
     <Reference Include="UnityEditor.StandardEvents">
       <HintPath>D:/Users/AMS2-05/Desktop/AMS2/M13/Adventurer-s-Fate/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
