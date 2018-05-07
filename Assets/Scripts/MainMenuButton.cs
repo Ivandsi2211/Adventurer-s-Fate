@@ -25,22 +25,25 @@ public class MainMenuButton : MonoBehaviour
 
     void OnMouseOver()
     {
-        if (currentState == MainMenuButton.buttonStates.normal)
+        if (Input.GetAxis("Mouse X") != 0 && Input.GetAxis("Mouse Ys") != 0)
         {
-            mainMenuButtonController.mainMenuButtons[mainMenuButtonController.Posicion].currentState = MainMenuButton.buttonStates.normal;
-            if (name == "NewGame_Button")
+            if (currentState == MainMenuButton.buttonStates.normal)
             {
-                mainMenuButtonController.Posicion = 0;
+                mainMenuButtonController.mainMenuButtons[mainMenuButtonController.Posicion].currentState = MainMenuButton.buttonStates.normal;
+                if (name == "NewGame_Button")
+                {
+                    mainMenuButtonController.Posicion = 0;
+                }
+                else if (name == "LoadGame_Button")
+                {
+                    mainMenuButtonController.Posicion = 1;
+                }
+                else if (name == "ExitGame_Button")
+                {
+                    mainMenuButtonController.Posicion = 2;
+                }
+                currentState = MainMenuButton.buttonStates.selected;
             }
-            else if (name == "LoadGame_Button")
-            {
-                mainMenuButtonController.Posicion = 1;
-            }
-            else if (name == "ExitGame_Button")
-            {
-                mainMenuButtonController.Posicion = 2;
-            }
-            currentState = MainMenuButton.buttonStates.selected;
         }
     }
 
