@@ -25,7 +25,7 @@ public class MainMenuButton : MonoBehaviour
 
     void OnMouseOver()
     {
-        if (Input.GetAxis("Mouse X") != 0 && Input.GetAxis("Mouse Ys") != 0)
+        if (Input.GetAxis("Mouse X") != 0 && Input.GetAxis("Mouse Y") != 0)
         {
             if (currentState == MainMenuButton.buttonStates.normal)
             {

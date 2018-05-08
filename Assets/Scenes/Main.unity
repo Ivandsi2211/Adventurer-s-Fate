@@ -242,8 +242,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainMenuButtonController: {fileID: 212479322}
   colores:
-  - {r: 1, g: 1, b: 1, a: 1}
   - {r: 0.6784314, g: 0.64705884, b: 0.64705884, a: 1}
+  - {r: 1, g: 1, b: 1, a: 1}
   - {r: 0.5568628, g: 0.35686275, b: 0.35686275, a: 1}
   buttonSprite: {fileID: 0}
   downTime: 0.1
@@ -323,14 +323,14 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 6.04, y: 1.26}
+    oldSize: {x: 37.75, y: 7.875}
     newSize: {x: 6.04, y: 1.26}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 6.04, y: 1.26}
+  m_Size: {x: 37.75, y: 7.875}
   m_EdgeRadius: 0
 --- !u!1 &212479320
 GameObject:
@@ -356,7 +356,7 @@ Transform:
   m_GameObject: {fileID: 212479320}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.1, y: 0.1, z: 1}
   m_Children:
   - {fileID: 1840308413}
   - {fileID: 135585640}
@@ -427,7 +427,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 11.34, y: 4.03}
+    oldSize: {x: 70.875, y: 25.1875}
     newSize: {x: 11.34, y: 4.03}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -527,8 +527,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainMenuButtonController: {fileID: 212479322}
   colores:
-  - {r: 1, g: 1, b: 1, a: 1}
   - {r: 0.6784314, g: 0.64705884, b: 0.64705884, a: 1}
+  - {r: 1, g: 1, b: 1, a: 1}
   - {r: 0.5568628, g: 0.35686275, b: 0.35686275, a: 1}
   buttonSprite: {fileID: 0}
   downTime: 0.1
@@ -541,7 +541,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 683943016}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -2, z: 10}
+  m_LocalPosition: {x: 0, y: -14, z: 10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 212479321}
@@ -608,14 +608,14 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 6.03, y: 1.26}
+    oldSize: {x: 37.6875, y: 7.875}
     newSize: {x: 6.03, y: 1.26}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 6.03, y: 1.26}
+  m_Size: {x: 37.75, y: 7.875}
   m_EdgeRadius: 0
 --- !u!1 &707020014
 GameObject:
@@ -640,7 +640,7 @@ Transform:
   m_GameObject: {fileID: 707020014}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.1, y: 0.1, z: 1}
   m_Children:
   - {fileID: 444805545}
   m_Father: {fileID: 35315534}
@@ -671,7 +671,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1840308412}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 2, z: 10}
+  m_LocalPosition: {x: 0, y: 14, z: 10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 212479321}
@@ -693,14 +693,14 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 6.04, y: 1.26}
+    oldSize: {x: 37.75, y: 7.875}
     newSize: {x: 6.04, y: 1.26}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 6.04, y: 1.26}
+  m_Size: {x: 37.75, y: 7.875}
   m_EdgeRadius: 0
 --- !u!114 &1840308416
 MonoBehaviour:
@@ -715,8 +715,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainMenuButtonController: {fileID: 212479322}
   colores:
-  - {r: 1, g: 1, b: 1, a: 1}
   - {r: 0.6784314, g: 0.64705884, b: 0.64705884, a: 1}
+  - {r: 1, g: 1, b: 1, a: 1}
   - {r: 0.5568628, g: 0.35686275, b: 0.35686275, a: 1}
   buttonSprite: {fileID: 0}
   downTime: 0.1
