@@ -375,6 +375,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58c85addd2f772b4e8bffbd2d8fc5f31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stateManager: {fileID: 35315535}
   mainMenuButtons:
   - {fileID: 1840308416}
   - {fileID: 135585639}
@@ -388,8 +389,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 444805545}
-  - component: {fileID: 444805546}
-  - component: {fileID: 444805547}
   - component: {fileID: 444805548}
   m_Layer: 0
   m_Name: StartMenuText
@@ -411,46 +410,6 @@ Transform:
   m_Father: {fileID: 707020015}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &444805546
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 444805544}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 70.875, y: 25.1875}
-    newSize: {x: 11.34, y: 4.03}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
---- !u!114 &444805547
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 444805544}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f293da0663f10f488d9937302dccba5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  downTime: 0.1
-  stateManager: {fileID: 35315535}
-  flashing_Label: {fileID: 444805544}
-  interval: 0.5
 --- !u!212 &444805548
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -625,6 +584,8 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 707020015}
+  - component: {fileID: 707020017}
+  - component: {fileID: 707020016}
   m_Layer: 0
   m_Name: Container - Start Menu
   m_TagString: Untagged
@@ -646,6 +607,47 @@ Transform:
   m_Father: {fileID: 35315534}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &707020016
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 707020014}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f293da0663f10f488d9937302dccba5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  downTime: 0.1
+  stateManager: {fileID: 35315535}
+  flashing_Label: {fileID: 444805544}
+  interval: 0.5
+  currentState: 0
+--- !u!61 &707020017
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 707020014}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 70.875, y: 25.1875}
+    newSize: {x: 11.34, y: 4.03}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!1 &1840308412
 GameObject:
   m_ObjectHideFlags: 0

@@ -3,7 +3,6 @@ using System.Collections;
 public class GameStates : MonoBehaviour
 {
     public GameObject StartMenuContainer;
-    public GameObject StartMenuBox;
     public GameObject MainMenuContainer;
     public enum displayStates
     {
@@ -12,8 +11,9 @@ public class GameStates : MonoBehaviour
     }    void Start()
     {
         Vector2 cameraSize = new Vector2(GetComponent<Camera>().pixelWidth, GetComponent<Camera>().pixelHeight);
-        StartMenuBox.GetComponent<BoxCollider2D>().size = cameraSize;
+        StartMenuContainer.GetComponent<BoxCollider2D>().size = cameraSize;
         changeDisplayState(displayStates.StartMenuContainer);
+
     }
     public void changeDisplayState(displayStates newState)
     {

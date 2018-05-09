@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using UnityEngine.SceneManagement;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -19,24 +20,24 @@ public class MainCamera : MonoBehaviour
 
     void Start()
     {
-        // Forzar la resolución si no estamos en versión Web
-        if (Application.platform != RuntimePlatform.WebGLPlayer)
-            Screen.SetResolution(800, 800, true);
+        // Forzar la resolución cuadrada en pantalla completa
+        Screen.SetResolution(800, 800, true);
     }
 
     void Update()
     {
 
-        // Forzar la resolución si no estamos en versión Web
-        if (Application.platform != RuntimePlatform.WebGLPlayer)
+        // Forzar la resolución si no es cuadrada o pantalla completa
+        if (!Screen.fullScreen || Camera.main.aspect != 1)
         {
-            // Si no es cuadrada o pantalla completa
-            if (!Screen.fullScreen || Camera.main.aspect != 1)
-                Screen.SetResolution(800, 800, true);
-            // Permitir cerrar juego al presionar escape
-            if (Input.GetAxis("Cancel") > 0)
-                Application.Quit();
+            Screen.SetResolution(800, 800, true);
         }
+        // Permitir cerrar juego al presionar escape
+        if (Input.GetAxis("Cancel/Menu Button") > 0)
+        {
+            SceneManager.LoadScene("Main", LoadSceneMode.Single);
+        }
+
 
         float posX = Mathf.Round(
             Mathf.SmoothDamp(transform.position.x,

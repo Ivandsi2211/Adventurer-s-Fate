@@ -4,15 +4,18 @@ using System.Collections;
 
 public class MainMenuButtonController : MonoBehaviour
 {
+    public GameStates stateManager = null;
     public MainMenuButton[] mainMenuButtons;
     public int Posicion;
     private bool pressMovementButton;
+    private bool notPressedCancelButton;
 
     // Use this for initialization
     void Start()
     {
         Posicion = 0;
         pressMovementButton = false;
+        notPressedCancelButton = true;
         mainMenuButtons[Posicion].currentState = MainMenuButton.buttonStates.selected;
     }
 
@@ -44,16 +47,35 @@ public class MainMenuButtonController : MonoBehaviour
                 mainMenuButtons[Posicion].currentState = MainMenuButton.buttonStates.selected;
             }
         }
-
-        if (Input.GetAxis("Vertical") < 1 && Input.GetAxis("Vertical") > -1)
+        else
         {
-            pressMovementButton = false;
+            if (Input.GetAxis("Vertical") < 1 && Input.GetAxis("Vertical") > -1)
+            {
+                pressMovementButton = false;
+            }
         }
 
-        if (Input.GetAxis("Confirmation") > 0)
+        if (Input.GetAxis("Confirmation Button") > 0)
         {
             mainMenuButtons[Posicion].nextStateTime = Time.time + mainMenuButtons[Posicion].downTime;
             mainMenuButtons[Posicion].currentState = MainMenuButton.buttonStates.down;
         }
+
+        if (!notPressedCancelButton)
+        {
+            if (Input.GetAxis("Cancel/Menu Button") < 1)
+            {
+                notPressedCancelButton = true;
+                stateManager.changeToStartMenu();
+            }
+        }
+        else
+        {
+            if (Input.GetAxis("Cancel/Menu Button") == 1)
+            {
+                notPressedCancelButton = false;
+            }
+        }
+
     }
 }

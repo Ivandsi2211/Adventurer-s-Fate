@@ -2,29 +2,35 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StartMenuController : MonoBehaviour {
+public class StartMenuController : MonoBehaviour
+{
     public float downTime = 0.1f;
     public GameStates stateManager = null;
     public GameObject flashing_Label;
     public float interval;
-    private enum menuStates
+    public enum menuStates
     {
         actived = 0,
         deactived
     }
-    private menuStates currentState = menuStates.actived;
+    public menuStates currentState;
     private float nextStateTime = 0.0f;
     void Start()
     {
+        currentState = menuStates.actived;
         InvokeRepeating("FlashLabel", 0, interval);
     }
 
     void FlashLabel()
     {
-        if (flashing_Label.activeSelf)
-            flashing_Label.SetActive(false);
+        if (flashing_Label.GetComponent<SpriteRenderer>().enabled)
+        {
+            flashing_Label.GetComponent<SpriteRenderer>().enabled = false;
+        }
         else
-            flashing_Label.SetActive(true);
+        {
+            flashing_Label.GetComponent<SpriteRenderer>().enabled = true;
+        }
     }
 
     void OnMouseDown()
@@ -39,10 +45,9 @@ public class StartMenuController : MonoBehaviour {
     }
     void Update()
     {
-        if (Input.anyKey){
-            if (nextStateTime == 0.0f
-                     &&
-                     currentState == StartMenuController.menuStates.actived)
+        if (Input.anyKey)
+        {
+            if (currentState == StartMenuController.menuStates.actived)
             {
                 nextStateTime = Time.time + downTime;
                 currentState = StartMenuController.menuStates.deactived;
@@ -50,10 +55,12 @@ public class StartMenuController : MonoBehaviour {
         }
         if (nextStateTime > 0.0f)
         {
-            if (nextStateTime < Time.time)
+            if (nextStateTime < Time.time &&
+                currentState == StartMenuController.menuStates.deactived)
             {
                 // Retornar el botó a estat “no polsat”
                 nextStateTime = 0.0f;
+                currentState = StartMenuController.menuStates.actived;
                 stateManager.changeToMainMenu();
             }
         }
