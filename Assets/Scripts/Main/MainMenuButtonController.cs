@@ -8,21 +8,23 @@ public class MainMenuButtonController : MonoBehaviour
     public MainMenuButton[] mainMenuButtons;
     public int Posicion;
     private bool pressMovementButton;
-    private bool notPressedCancelButton;
+    private bool pressCancelButton;
+    private bool pressConfirmationButton;
 
     // Use this for initialization
     void Start()
     {
         Posicion = 0;
         pressMovementButton = false;
-        notPressedCancelButton = true;
+        pressCancelButton = false;
+        pressConfirmationButton = false;
         mainMenuButtons[Posicion].currentState = MainMenuButton.buttonStates.selected;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (!pressMovementButton)
+        if (!pressMovementButton && !pressConfirmationButton)
         {
             if (Input.GetAxis("Vertical") == -1)
             {
@@ -55,25 +57,30 @@ public class MainMenuButtonController : MonoBehaviour
             }
         }
 
-        if (Input.GetAxis("Confirmation Button") > 0)
+        if (!pressCancelButton)
         {
-            mainMenuButtons[Posicion].nextStateTime = Time.time + mainMenuButtons[Posicion].downTime;
-            mainMenuButtons[Posicion].currentState = MainMenuButton.buttonStates.down;
-        }
-
-        if (!notPressedCancelButton)
-        {
-            if (Input.GetAxis("Cancel/Menu Button") < 1)
+            if (Input.GetButtonDown("Confirmation Button"))
             {
-                notPressedCancelButton = true;
-                stateManager.changeToStartMenu();
+                mainMenuButtons[Posicion].nextStateTime = Time.time + mainMenuButtons[Posicion].downTime;
+                mainMenuButtons[Posicion].currentState = MainMenuButton.buttonStates.down;
+                pressConfirmationButton = true;
+            }
+            else if (Input.GetButtonUp("Confirmation Button"))
+            {
+                pressConfirmationButton = false;
             }
         }
-        else
+
+        if (!pressConfirmationButton)
         {
-            if (Input.GetAxis("Cancel/Menu Button") == 1)
+            if (Input.GetButtonDown("Cancel/Menu Button"))
             {
-                notPressedCancelButton = false;
+                pressCancelButton = true;
+            }
+            else if (Input.GetButtonUp("Cancel/Menu Button"))
+            {
+                pressCancelButton = false;
+                stateManager.changeToStartMenu();
             }
         }
 

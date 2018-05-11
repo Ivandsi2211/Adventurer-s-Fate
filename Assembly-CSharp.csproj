@@ -59,18 +59,21 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\Area.cs" />
-    <Compile Include="Assets\Scripts\Aura.cs" />
-    <Compile Include="Assets\Scripts\Destroyable.cs" />
-    <Compile Include="Assets\Scripts\FixDepth.cs" />
-    <Compile Include="Assets\Scripts\GameStates.cs" />
-    <Compile Include="Assets\Scripts\MainCamera.cs" />
-    <Compile Include="Assets\Scripts\MainMenuButton.cs" />
-    <Compile Include="Assets\Scripts\MainMenuButtonController.cs" />
-    <Compile Include="Assets\Scripts\Player.cs" />
-    <Compile Include="Assets\Scripts\Slash.cs" />
-    <Compile Include="Assets\Scripts\StartMenuController.cs" />
-    <Compile Include="Assets\Scripts\Warp.cs" />
+    <Compile Include="Assets\Scripts\Game\Area.cs" />
+    <Compile Include="Assets\Scripts\Game\Attack.cs" />
+    <Compile Include="Assets\Scripts\Game\Aura.cs" />
+    <Compile Include="Assets\Scripts\Game\Destroyable.cs" />
+    <Compile Include="Assets\Scripts\Game\Enemy.cs" />
+    <Compile Include="Assets\Scripts\Game\FixDepth.cs" />
+    <Compile Include="Assets\Scripts\Game\MainCamera.cs" />
+    <Compile Include="Assets\Scripts\Game\Player.cs" />
+    <Compile Include="Assets\Scripts\Game\Rock.cs" />
+    <Compile Include="Assets\Scripts\Game\Slash.cs" />
+    <Compile Include="Assets\Scripts\Game\Warp.cs" />
+    <Compile Include="Assets\Scripts\Main\GameStates.cs" />
+    <Compile Include="Assets\Scripts\Main\MainMenuButton.cs" />
+    <Compile Include="Assets\Scripts\Main\MainMenuButtonController.cs" />
+    <Compile Include="Assets\Scripts\Main\StartMenuController.cs" />
     <Compile Include="Assets\Tiled2Unity\Scripts\Runtime\CircleObject.cs" />
     <Compile Include="Assets\Tiled2Unity\Scripts\Runtime\GameObjectExtensions.cs" />
     <Compile Include="Assets\Tiled2Unity\Scripts\Runtime\GPUInstancing.cs" />

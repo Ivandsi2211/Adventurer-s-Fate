@@ -18,10 +18,12 @@ public class Player : MonoBehaviour
     CircleCollider2D attackCollider;
 
     Aura aura;
-    float attackAxisStatus;
-    bool slashAttackFinished;
 
+    AnimatorStateInfo stateInfo;
     bool movePrevent;
+    bool attacking;
+    bool loading;
+
 
     void Awake()
     {
@@ -34,15 +36,16 @@ public class Player : MonoBehaviour
         anim = GetComponent<Animator>();
         rb2d = GetComponent<Rigidbody2D>();
 
-        // Recuperamos el collider de ataque del primer hijo
+        //* Recuperamos el collider de ataque y lo desactivamos
         attackCollider = transform.GetChild(0).GetComponent<CircleCollider2D>();
-        // Lo desactivamos desde el principio, luego
         attackCollider.enabled = false;
 
         Camera.main.GetComponent<MainCamera>().SetBound(initialMap);
 
-        attackAxisStatus = Input.GetAxis("Attack");
-        slashAttackFinished = false;
+        aura = transform.GetChild(1).GetComponent<Aura>();
+
+        attacking = false;
+        loading = false;
     }
 
     void Update()
@@ -102,13 +105,12 @@ public class Player : MonoBehaviour
         }
 
         // Buscamos el estado actual mirando la información del animador
-        AnimatorStateInfo stateInfo = anim.GetCurrentAnimatorStateInfo(0);
-        bool attacking = stateInfo.IsName("Player_Attack");
+        stateInfo = anim.GetCurrentAnimatorStateInfo(0);
+        attacking = stateInfo.IsName("Player_Attack");
 
         // Detectamos el ataque, tiene prioridad por lo que va abajo del todo
-        if (Input.GetAxis("Attack") == 1 && !attacking)
+        if (Input.GetButtonUp("Attack") && !attacking && !aura.IsLoaded())
         {
-            attackAxisStatus = Input.GetAxis("Attack");
             anim.SetTrigger("attacking");
         }
 
@@ -131,16 +133,16 @@ public class Player : MonoBehaviour
     void SlashAttack()
     {
         // Buscamos el estado actual mirando la información del animador
-        AnimatorStateInfo stateInfo = anim.GetCurrentAnimatorStateInfo(0);
-        bool loading = stateInfo.IsName("Player_Slash");
+        stateInfo = anim.GetCurrentAnimatorStateInfo(0);
+        loading = stateInfo.IsName("Player_Slash");
 
         // Ataque a distancia
-        if (Input.GetAxis("Attack") == 1)
+        if (Input.GetButtonDown("Attack"))
         {
             anim.SetTrigger("loading");
             aura.AuraStart();
         }
-        else if (Input.GetAxis("Attack") == 0)
+        else if (Input.GetButtonUp("Attack"))
         {
             anim.SetTrigger("attacking");
             if (aura.IsLoaded())

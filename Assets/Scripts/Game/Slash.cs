@@ -27,6 +27,11 @@ public class Slash : MonoBehaviour
         }
         else if (col.tag != "Player" && col.tag != "Attack")
         {
+            ///--- Restamos uno de vida si es un enemigo
+            if (col.tag == "Enemy")
+            {
+                col.SendMessage("Attacked");
+            }
             Destroy(gameObject);
         }
     }

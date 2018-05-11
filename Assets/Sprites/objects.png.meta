@@ -30,6 +30,7 @@ TextureImporter:
     21300050: Aura_7
     21300052: Aura_8
     21300054: Bush_Destroyed_4
+    21300056: Enemy_Rock_1
   externalObjects: {}
   serializedVersion: 5
   mipmaps:
@@ -658,13 +659,33 @@ TextureImporter:
         width: 13
         height: 8
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
       spriteID: 1cdeae7ee6d27cf44ad544415fe990e4
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy_Rock_1
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 292
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b21fb13217eee734a9a733cd082fdda4
       vertices: []
       indices: 
       edges: []
