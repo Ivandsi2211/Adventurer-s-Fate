@@ -19,7 +19,7 @@ TagManager:
   - 
   - Enemy
   - Attack
-  - 
+  - Enemy Attack
   - 
   - 
   - 
@@ -47,4 +47,7 @@ TagManager:
     locked: 0
   - name: Player
     uniqueID: 1443335247
+    locked: 0
+  - name: Pause Menu
+    uniqueID: 1763008175
     locked: 0

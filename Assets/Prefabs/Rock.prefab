@@ -20,8 +20,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4973053990584382}
   - component: {fileID: 212754792633141680}
-  - component: {fileID: 114475106664174430}
   - component: {fileID: 50155547897981590}
+  - component: {fileID: 114475106664174430}
   - component: {fileID: 58007861894022868}
   m_Layer: 9
   m_Name: Rock

@@ -40,8 +40,8 @@ public class Warp : MonoBehaviour
         // Al chocar el jugador contra el warp comprobamos si es el jugador y lo transportamos
         if (col.CompareTag("Player"))
         {
-
             // Empezamos la trancisión fadeIn y desactivamos los controles de animación y movimiento
+            PauseMenu.menuIsActive = false;
             FadeIn();
             col.GetComponent<Animator>().enabled = false;
             col.GetComponent<Player>().enabled = false;
@@ -55,6 +55,7 @@ public class Warp : MonoBehaviour
             FadeOut();
             col.GetComponent<Animator>().enabled = true;
             col.GetComponent<Player>().enabled = true;
+            PauseMenu.menuIsActive = true;
 
             // Por último mostramos el nombre de la zona 2 segundos
             StartCoroutine(area.GetComponent<Area>().ShowArea(targetMap.name));

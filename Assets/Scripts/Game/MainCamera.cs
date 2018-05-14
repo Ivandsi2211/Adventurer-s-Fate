@@ -21,7 +21,7 @@ public class MainCamera : MonoBehaviour
     void Start()
     {
         // Forzar la resolución cuadrada en pantalla completa
-        Screen.SetResolution(800, 800, FullScreenMode.MaximizedWindow);
+        Screen.SetResolution(800, 800, FullScreenMode.Windowed);
     }
 
     void Update()
@@ -33,11 +33,10 @@ public class MainCamera : MonoBehaviour
             Screen.SetResolution(800, 800, FullScreenMode.MaximizedWindow);
         }
         // Permitir cerrar juego al presionar escape
-        if (Input.GetAxis("Cancel/Menu Button") > 0)
-        {
-            SceneManager.LoadScene("Main", LoadSceneMode.Single);
-        }
-
+        //if (Input.GetAxis("Cancel/Menu Button") > 0)
+        //{
+        //    SceneManager.LoadScene("Main", LoadSceneMode.Single);
+        //}
 
         float posX = Mathf.Round(
             Mathf.SmoothDamp(transform.position.x,
@@ -72,13 +71,11 @@ public class MainCamera : MonoBehaviour
 
     public void FastMove()
     {
-
         transform.position = new Vector3(
             target.position.x,
             target.position.y,
             transform.position.z
         );
-
     }
 
 }

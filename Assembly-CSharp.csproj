@@ -66,6 +66,7 @@
     <Compile Include="Assets\Scripts\Game\Enemy.cs" />
     <Compile Include="Assets\Scripts\Game\FixDepth.cs" />
     <Compile Include="Assets\Scripts\Game\MainCamera.cs" />
+    <Compile Include="Assets\Scripts\Game\PauseMenu.cs" />
     <Compile Include="Assets\Scripts\Game\Player.cs" />
     <Compile Include="Assets\Scripts\Game\Rock.cs" />
     <Compile Include="Assets\Scripts\Game\Slash.cs" />

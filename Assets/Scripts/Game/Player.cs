@@ -50,20 +50,23 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        // Detectamos el movimiento
-        Movements();
+        if (!PauseMenu.gameIsPaused)
+        {
+            // Detectamos el movimiento
+            Movements();
 
-        // Procesamos las animaciones
-        Animations();
+            // Procesamos las animaciones
+            Animations();
 
-        // Ataque con espada
-        SwordAttack();
+            // Ataque con espada
+            SwordAttack();
 
-        // Ataque con rayo maestro
-        SlashAttack();
+            // Ataque con rayo maestro
+            SlashAttack();
 
-        // Prevenir movimiento
-        PreventMovement();
+            // Prevenir movimiento
+            PreventMovement();
+        }
     }
 
     void FixedUpdate()
