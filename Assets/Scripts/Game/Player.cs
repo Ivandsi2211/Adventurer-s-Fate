@@ -24,11 +24,18 @@ public class Player : MonoBehaviour
     bool attacking;
     bool loading;
 
+    public AudioClip swordSlashClip;
+
+    private AudioSource source;
+    private float volLowRange = .5f;
+    private float volHighRange = 1.0f;
 
     void Awake()
     {
         Assert.IsNotNull(initialMap);
         Assert.IsNotNull(slashPrefab);
+
+        source = GetComponent<AudioSource>();
     }
 
     void Start()
@@ -86,7 +93,6 @@ public class Player : MonoBehaviour
 
     void Animations()
     {
-
         if (mov != Vector2.zero)
         {
             anim.SetFloat("movX", mov.x);
@@ -114,6 +120,8 @@ public class Player : MonoBehaviour
         // Detectamos el ataque, tiene prioridad por lo que va abajo del todo
         if (Input.GetButtonUp("Attack") && !attacking && !aura.IsLoaded())
         {
+            float vol = UnityEngine.Random.Range(volLowRange, volHighRange);
+            source.PlayOneShot(swordSlashClip, vol);
             anim.SetTrigger("attacking");
         }
 
@@ -137,17 +145,21 @@ public class Player : MonoBehaviour
     {
         // Buscamos el estado actual mirando la información del animador
         stateInfo = anim.GetCurrentAnimatorStateInfo(0);
+        attacking = stateInfo.IsName("Player_Attack");
         loading = stateInfo.IsName("Player_Slash");
 
         // Ataque a distancia
-        if (Input.GetButtonDown("Attack"))
+        if (Input.GetButtonDown("Attack") && !attacking)
         {
             anim.SetTrigger("loading");
             aura.AuraStart();
         }
-        else if (Input.GetButtonUp("Attack"))
+        else if (Input.GetButtonUp("Attack") && !attacking)
         {
+            float vol = UnityEngine.Random.Range(volLowRange, volHighRange);
+            source.PlayOneShot(swordSlashClip, vol);
             anim.SetTrigger("attacking");
+
             if (aura.IsLoaded())
             {
                 // Para que se mueva desde el principio tenemos que asignar un
@@ -176,7 +188,6 @@ public class Player : MonoBehaviour
             movePrevent = true;
         }
     }
-
 
     void PreventMovement()
     {

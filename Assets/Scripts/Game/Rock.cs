@@ -31,8 +31,13 @@ public class Rock : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D col){
         // Si chocamos contra el jugador o un ataque la borramos
-        if (col.transform.tag == "Player" || col.transform.tag == "Attack"){
-            Destroy(gameObject); 
+        if (col.tag != "Enemy")
+        {
+            if (col.transform.tag == "Player")
+            {
+                col.SendMessage("Attacked");
+            }
+            Destroy(gameObject);
         }
     }
 

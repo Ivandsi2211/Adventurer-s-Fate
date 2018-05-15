@@ -26,11 +26,10 @@ public class MainCamera : MonoBehaviour
 
     void Update()
     {
-
         // Forzar la resolución si no es cuadrada o pantalla completa
-        if (!Screen.fullScreen || Camera.main.aspect != 1)
+        if (Camera.main.aspect != 1)
         {
-            Screen.SetResolution(800, 800, FullScreenMode.MaximizedWindow);
+            Screen.SetResolution(800, 800, FullScreenMode.Windowed);
         }
         // Permitir cerrar juego al presionar escape
         //if (Input.GetAxis("Cancel/Menu Button") > 0)
