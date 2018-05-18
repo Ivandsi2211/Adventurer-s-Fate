@@ -1,6 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
@@ -45,12 +44,22 @@ public class PauseMenu : MonoBehaviour
         gameIsPaused = true;
     }
 
-    public void ResumeButton()
+    public void ResumeGame_Button()
     {
         Resume();
     }
 
-    public void ExitToDesktopButton()
+    public void SaveGame_Button()
+    {
+        Debug.Log("SaveGame was pressed");
+    }
+
+    public void MainMenuGame_Button()
+    {
+        SceneManager.LoadScene("Main", LoadSceneMode.Single);
+    }
+
+    public void ExitGame_Button()
     {
         #if UNITY_EDITOR
         // Application.Quit() does not work in the editor so

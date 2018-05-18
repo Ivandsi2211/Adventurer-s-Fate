@@ -2,9 +2,10 @@ fileFormatVersion: 2
 guid: 7367bbd46a0379e4aa3bd095486c918c
 TextureImporter:
   fileIDToRecycleName:
-    21300000: PauseMenuButtons_0
-    21300002: PauseMenuButtons_1
-    21300004: PauseMenuButtons_2
+    21300000: ResumeGame_Button
+    21300002: SaveGame_Button
+    21300004: MainMenuGame_Button
+    21300006: ExitGame_Button
   externalObjects: {}
   serializedVersion: 5
   mipmaps:
@@ -46,7 +47,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -85,13 +86,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: PauseMenuButtons_0
+      name: ResumeGame_Button
       rect:
         serializedVersion: 2
-        x: 43
-        y: 385
-        width: 604
-        height: 126
+        x: 71
+        y: 742
+        width: 636
+        height: 132
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -99,19 +100,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dbb0ee8c35d4e174aa52bca90557f4cc
+      spriteID: f87f598ed3df71d4188896b21754433d
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PauseMenuButtons_1
+      name: SaveGame_Button
       rect:
         serializedVersion: 2
-        x: 43
-        y: 201
-        width: 604
-        height: 128
+        x: 71
+        y: 504
+        width: 636
+        height: 132
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -119,19 +120,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d750b2956060a1649b18b60a9a995a4d
+      spriteID: 57e08861f7fe1c847a1378de60c2cbbd
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PauseMenuButtons_2
+      name: MainMenuGame_Button
       rect:
         serializedVersion: 2
-        x: 45
-        y: 13
-        width: 603
-        height: 126
+        x: 71
+        y: 266
+        width: 636
+        height: 132
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -139,7 +140,27 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f80d2eef380670641aad11af9af3a144
+      spriteID: 39e48ea54de93fb4eae4bcaa26dc4e16
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExitGame_Button
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 29
+        width: 636
+        height: 131
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c738855f32a79f4bab0aec2b91893fb
       vertices: []
       indices: 
       edges: []
