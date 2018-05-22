@@ -19,28 +19,24 @@ public class Aura : MonoBehaviour
 
     public void AuraStart()
     {
-        manager = StartCoroutine(Manager());
-        anim.Play("Aura_Idle");
+        anim.Play("Aura_Play");
+        loaded = true;
     }
 
     public void AuraStop()
     {
-        StopCoroutine(manager);
         anim.Play("Aura_Idle");
         loaded = false;
-    }
-
-    // Método para comprobar si ya hemos cargado suficiente
-    public IEnumerator Manager()
-    {
-        yield return new WaitForSeconds(waitBeforePlay);
-        anim.Play("Aura_Play");
-        loaded = true;
     }
 
     // Método para comprobar si ya hemos cargado suficiente
     public bool IsLoaded()
     {
         return loaded;
+    }
+
+    public float getTimeBeforePlay()
+    {
+        return waitBeforePlay;
     }
 }

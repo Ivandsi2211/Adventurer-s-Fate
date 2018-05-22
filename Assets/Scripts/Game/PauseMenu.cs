@@ -6,6 +6,7 @@ public class PauseMenu : MonoBehaviour
     public static bool menuIsActive;
     public static bool gameIsPaused;
     public GameObject pauseMenu;
+    public MainMenuButton[] pauseMenuButtons;
 
     // Use this for initialization
     void Start()
@@ -33,14 +34,12 @@ public class PauseMenu : MonoBehaviour
     void Resume()
     {
         pauseMenu.SetActive(false);
-        Time.timeScale = 1.0f;
         gameIsPaused = false;
     }
 
     void Pause()
     {
         pauseMenu.SetActive(true);
-        Time.timeScale = 0.0f;
         gameIsPaused = true;
     }
 
@@ -51,22 +50,25 @@ public class PauseMenu : MonoBehaviour
 
     public void SaveGame_Button()
     {
+        Resume();
         Debug.Log("SaveGame was pressed");
     }
 
     public void MainMenuGame_Button()
     {
+        Resume();
         SceneManager.LoadScene("Main", LoadSceneMode.Single);
     }
 
     public void ExitGame_Button()
     {
-        #if UNITY_EDITOR
+        Resume();
+#if UNITY_EDITOR
         // Application.Quit() does not work in the editor so
         // UnityEditor.EditorApplication.isPlaying need to be set to false to end the game
         UnityEditor.EditorApplication.isPlaying = false;
-        #else
+#else
            Application.Quit();
-        #endif
+#endif
     }
 }

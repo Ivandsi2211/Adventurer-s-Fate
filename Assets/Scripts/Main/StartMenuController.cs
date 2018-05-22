@@ -14,7 +14,9 @@ public class StartMenuController : MonoBehaviour
         deactived
     }
     public menuStates currentState;
-    private float nextStateTime = 0.0f;
+
+    public Animator anim;
+
     void Start()
     {
         currentState = menuStates.actived;
@@ -22,60 +24,50 @@ public class StartMenuController : MonoBehaviour
 
     void OnEnable()
     {
-        StartCoroutine(ManageAnimation());
+        Debug.Log("Enabled");
+        ManageAnimation();
+        anim.SetBool("active", true);
     }
 
     IEnumerator ManageAnimation()
     {
         yield return new WaitForSeconds(0.5f);
-        fading_Label.GetComponent<Animator>().Play("Start_Fading");
     }
 
-        void OnMouseDown()
+    void OnMouseDown()
     {
-        if (nextStateTime == 0.0f
-         &&
-         currentState == StartMenuController.menuStates.actived)
+        if (currentState == StartMenuController.menuStates.actived)
         {
-            nextStateTime = Time.time + downTime;
             currentState = StartMenuController.menuStates.deactived;
         }
     }
+
     void Update()
     {
-        if (Input.anyKey)
+        if (Input.GetButtonDown("Cancel/Menu Button"))
         {
-            if (Input.GetButtonDown("Cancel/Menu Button"))
-            {
-                Debug.Log("Se cerrará el juego");
-                #if UNITY_EDITOR
-                // Application.Quit() does not work in the editor so
-                // UnityEditor.EditorApplication.isPlaying need to be set to false to end the game
-                UnityEditor.EditorApplication.isPlaying = false;
-                #else
+            Debug.Log("Se cerrará el juego");
+#if UNITY_EDITOR
+            // Application.Quit() does not work in the editor so
+            // UnityEditor.EditorApplication.isPlaying need to be set to false to end the game
+            UnityEditor.EditorApplication.isPlaying = false;
+#else
                         Application.Quit();
-                #endif
-            }
-            else if (!Input.GetButtonDown("Cancel/Menu Button") &&
+#endif
+        }
+        else if (!Input.GetButtonDown("Cancel/Menu Button") &&
                 !Input.GetButton("Cancel/Menu Button") &&
                 !Input.GetButtonUp("Cancel/Menu Button"))
-            {
-                if (currentState == StartMenuController.menuStates.actived)
-                {
-                    nextStateTime = Time.time + downTime;
-                    currentState = StartMenuController.menuStates.deactived;
-                }
-            }
-        }
-        if (nextStateTime > 0.0f)
         {
-            if (nextStateTime < Time.time &&
-                currentState == StartMenuController.menuStates.deactived)
+            if (Input.anyKey && currentState == StartMenuController.menuStates.actived)
+            {
+                currentState = StartMenuController.menuStates.deactived;
+            }
+            else if (!Input.anyKey && currentState == StartMenuController.menuStates.deactived)
             {
                 // Retornar el botó a estat “no polsat”
-                nextStateTime = 0.0f;
+                anim.SetBool("active", false);
                 currentState = StartMenuController.menuStates.actived;
-                fading_Label.GetComponent<Animator>().Play("Start_Idle");
                 stateManager.changeToMainMenu();
             }
         }

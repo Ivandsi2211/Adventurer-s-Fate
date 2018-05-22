@@ -697,6 +697,7 @@ MonoBehaviour:
   fading_Label: {fileID: 2030269973}
   interval: 0.5
   currentState: 0
+  anim: {fileID: 2030269977}
 --- !u!61 &707020017
 BoxCollider2D:
   m_ObjectHideFlags: 0
