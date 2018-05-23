@@ -6,69 +6,109 @@ public class PauseMenu : MonoBehaviour
     public static bool menuIsActive;
     public static bool gameIsPaused;
     public GameObject pauseMenu;
-    public MainMenuButton[] pauseMenuButtons;
+
+    public PauseMenuButton[] pauseMenuButtons;
+    public int Posicion;
+    private bool pressMovementButton;
+    private bool pressCancelButton;
+    private bool pressConfirmationButton;
 
     // Use this for initialization
     void Start()
     {
         gameIsPaused = false;
         menuIsActive = true;
+
+        Posicion = 0;
+        pressMovementButton = false;
+        pressCancelButton = false;
+        pressConfirmationButton = false;
+        pauseMenuButtons[Posicion].currentState = PauseMenuButton.buttonStates.selected;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonUp("Cancel/Menu Button") && menuIsActive)
+        if (menuIsActive)
         {
-            if (gameIsPaused)
+            if (!pressMovementButton && !pressConfirmationButton)
             {
-                Resume();
+                if (Input.GetAxis("Vertical") == -1)
+                {
+                    pressMovementButton = true;
+                    pauseMenuButtons[Posicion].currentState = PauseMenuButton.buttonStates.normal;
+                    Posicion++;
+                    if (Posicion > pauseMenuButtons.Length - 1)
+                    {
+                        Posicion = 0;
+                    }
+                    pauseMenuButtons[Posicion].currentState = PauseMenuButton.buttonStates.selected;
+                }
+                else if (Input.GetAxis("Vertical") == 1)
+                {
+                    pressMovementButton = true;
+                    pauseMenuButtons[Posicion].currentState = PauseMenuButton.buttonStates.normal;
+                    Posicion--;
+                    if (Posicion < 0)
+                    {
+                        Posicion = pauseMenuButtons.Length - 1;
+                    }
+                    pauseMenuButtons[Posicion].currentState = PauseMenuButton.buttonStates.selected;
+                }
             }
             else
             {
-                Pause();
+                if (Input.GetAxis("Vertical") < 1 && Input.GetAxis("Vertical") > -1)
+                {
+                    pressMovementButton = false;
+                }
+            }
+
+            if (!pressCancelButton)
+            {
+                if (Input.GetButtonDown("Confirmation Button"))
+                {
+                    pauseMenuButtons[Posicion].nextStateTime = Time.time + pauseMenuButtons[Posicion].downTime;
+                    pauseMenuButtons[Posicion].currentState = PauseMenuButton.buttonStates.down;
+                    pressConfirmationButton = true;
+                }
+                else if (Input.GetButtonUp("Confirmation Button"))
+                {
+                    pressConfirmationButton = false;
+                }
+            }
+
+            if (!pressConfirmationButton)
+            {
+                if (Input.GetButtonDown("Cancel/Menu Button"))
+                {
+                    pressCancelButton = true;
+                    if (gameIsPaused)
+                    {
+                        Resume();
+                    }
+                    else
+                    {
+                        Pause();
+                    }
+                }
+                else
+                {
+                    pressCancelButton = false;
+                }
             }
         }
     }
 
-    void Resume()
+    public void Resume()
     {
         pauseMenu.SetActive(false);
         gameIsPaused = false;
     }
 
-    void Pause()
+    public void Pause()
     {
         pauseMenu.SetActive(true);
         gameIsPaused = true;
-    }
-
-    public void ResumeGame_Button()
-    {
-        Resume();
-    }
-
-    public void SaveGame_Button()
-    {
-        Resume();
-        Debug.Log("SaveGame was pressed");
-    }
-
-    public void MainMenuGame_Button()
-    {
-        Resume();
-        SceneManager.LoadScene("Main", LoadSceneMode.Single);
-    }
-
-    public void ExitGame_Button()
-    {
-        Resume();
-#if UNITY_EDITOR
-        // Application.Quit() does not work in the editor so
-        // UnityEditor.EditorApplication.isPlaying need to be set to false to end the game
-        UnityEditor.EditorApplication.isPlaying = false;
-#else
-           Application.Quit();
-#endif
     }
 }
