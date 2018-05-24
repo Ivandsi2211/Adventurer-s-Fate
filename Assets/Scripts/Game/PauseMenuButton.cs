@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems;
 
 public class PauseMenuButton : MonoBehaviour
 {
@@ -21,43 +22,16 @@ public class PauseMenuButton : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        currentState = buttonStates.normal;
         buttonImage = GetComponent<Image>();
-        buttonImage.color = colores[0];
-    }
 
-    void OnMouseOver()
-    {
-        if (Input.GetAxis("Mouse X") != 0 && Input.GetAxis("Mouse Y") != 0)
+        if (currentState == PauseMenuButton.buttonStates.selected)
         {
-            if (currentState == PauseMenuButton.buttonStates.normal)
-            {
-                pauseMenu.pauseMenuButtons[pauseMenu.Posicion].currentState = PauseMenuButton.buttonStates.normal;
-                if (name == "ResumeGame_Button")
-                {
-                    pauseMenu.Posicion = 0;
-                }
-                else if (name == "SaveGame_Button")
-                {
-                    pauseMenu.Posicion = 1;
-                }
-                else if (name == "MainMenuGame_Button")
-                {
-                    pauseMenu.Posicion = 2;
-                }
-                else if (name == "ExitGame_Button")
-                {
-                    pauseMenu.Posicion = 3;
-                }
-                currentState = PauseMenuButton.buttonStates.selected;
-            }
+            buttonImage.color = colores[1];
         }
-    }
-
-    void OnMouseDown()
-    {
-        nextStateTime = Time.time + downTime;
-        currentState = PauseMenuButton.buttonStates.down;
+        else if (currentState == PauseMenuButton.buttonStates.normal)
+        {
+            buttonImage.color = colores[0];
+        }
     }
 
     // Update is called once per frame
@@ -113,4 +87,33 @@ public class PauseMenuButton : MonoBehaviour
             }
         }
     }
+
+    public void selectButton()
+    {
+        pauseMenu.pauseMenuButtons[pauseMenu.Posicion].currentState = PauseMenuButton.buttonStates.normal;
+        if (name == "ResumeGame_Button")
+        {
+            pauseMenu.Posicion = 0;
+        }
+        else if (name == "SaveGame_Button")
+        {
+            pauseMenu.Posicion = 1;
+        }
+        else if (name == "MainMenuGame_Button")
+        {
+            pauseMenu.Posicion = 2;
+        }
+        else if (name == "ExitGame_Button")
+        {
+            pauseMenu.Posicion = 3;
+        }
+        currentState = PauseMenuButton.buttonStates.selected;
+    }
+
+    public void onClickButton()
+    {
+        nextStateTime = Time.time + downTime;
+        currentState = PauseMenuButton.buttonStates.down;
+    }
+
 }

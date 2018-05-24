@@ -33,7 +33,7 @@ public class PauseMenu : MonoBehaviour
         {
             if (!pressMovementButton && !pressConfirmationButton)
             {
-                if (Input.GetAxis("Vertical") == -1)
+                if (Input.GetAxis("Vertical") == -1 && gameIsPaused)
                 {
                     pressMovementButton = true;
                     pauseMenuButtons[Posicion].currentState = PauseMenuButton.buttonStates.normal;
@@ -44,7 +44,7 @@ public class PauseMenu : MonoBehaviour
                     }
                     pauseMenuButtons[Posicion].currentState = PauseMenuButton.buttonStates.selected;
                 }
-                else if (Input.GetAxis("Vertical") == 1)
+                else if (Input.GetAxis("Vertical") == 1 && gameIsPaused)
                 {
                     pressMovementButton = true;
                     pauseMenuButtons[Posicion].currentState = PauseMenuButton.buttonStates.normal;
@@ -66,7 +66,7 @@ public class PauseMenu : MonoBehaviour
 
             if (!pressCancelButton)
             {
-                if (Input.GetButtonDown("Confirmation Button"))
+                if (Input.GetButtonDown("Confirmation Button") && gameIsPaused)
                 {
                     pauseMenuButtons[Posicion].nextStateTime = Time.time + pauseMenuButtons[Posicion].downTime;
                     pauseMenuButtons[Posicion].currentState = PauseMenuButton.buttonStates.down;
@@ -77,6 +77,7 @@ public class PauseMenu : MonoBehaviour
                     pressConfirmationButton = false;
                 }
             }
+
 
             if (!pressConfirmationButton)
             {

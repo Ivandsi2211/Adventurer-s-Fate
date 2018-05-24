@@ -69,15 +69,16 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        if (!PauseMenu.gameIsPaused)
+        if (PauseMenu.gameIsPaused)
         {
-            // Detectamos el movimiento
-            Movements();
-        }
-        else
+            anim.speed = 0.0f;
+        } else
         {
-            mov = Vector2.zero;
+            anim.speed = 1.0f;
         }
+
+        // Detectamos el movimiento
+        Movements();
 
         // Procesamos las animaciones
         Animations();
@@ -103,10 +104,17 @@ public class Player : MonoBehaviour
     void Movements()
     {
         // Detectamos el movimiento en un vector 2D
-        mov = new Vector2(
-            Input.GetAxisRaw("Horizontal"),
-            Input.GetAxisRaw("Vertical")
-        );
+        if (!PauseMenu.gameIsPaused)
+        {
+            mov = new Vector2(
+                Input.GetAxisRaw("Horizontal"),
+                Input.GetAxisRaw("Vertical")
+            );
+        }
+        else
+        {
+            mov = Vector2.zero;
+        }
     }
 
     void Animations()
@@ -125,42 +133,42 @@ public class Player : MonoBehaviour
 
     void SwordAttack()
     {
-        if (!PauseMenu.gameIsPaused)
+        // Vamos actualizando la posición de la colisión de ataque
+        if (mov != Vector2.zero)
         {
-            // Vamos actualizando la posición de la colisión de ataque
-            if (mov != Vector2.zero)
+            attackCollider.offset = new Vector2(mov.x / 2, mov.y / 2);
+        }
+
+        // Buscamos el estado actual mirando la información del animador
+        stateInfo = anim.GetCurrentAnimatorStateInfo(0);
+        attacking = stateInfo.IsName("Player_Attack");
+        loading = stateInfo.IsName("Player_Slash");
+
+        // Detectamos el ataque, tiene prioridad por lo que va abajo del todo
+        if (!Input.GetButton("Attack") && loading && !attacking && !PauseMenu.gameIsPaused)
+        {
+            chargedAttackTime = 0.0f;
+            anim.SetTrigger("attacking");
+        }
+
+        // Activamos el collider a la mitad de la animación de ataque
+        if (attacking && !PauseMenu.gameIsPaused)
+        { // El normalized siempre resulta ser un ciclo entre 0 y 1 
+            float vol = UnityEngine.Random.Range(volLowRange, volHighRange);
+            source.PlayOneShot(swordSlashClip, vol);
+
+            float playbackTime = stateInfo.normalizedTime;
+
+            if (playbackTime > 0.33 && playbackTime < 0.66)
             {
-                attackCollider.offset = new Vector2(mov.x / 2, mov.y / 2);
+                attackCollider.enabled = true;
             }
-
-            // Buscamos el estado actual mirando la información del animador
-            stateInfo = anim.GetCurrentAnimatorStateInfo(0);
-            attacking = stateInfo.IsName("Player_Attack");
-
-            // Detectamos el ataque, tiene prioridad por lo que va abajo del todo
-            if (Input.GetButtonUp("Attack") && !attacking && !aura.IsLoaded())
+            else
             {
-                chargedAttackTime = 0.0f;
-                float vol = UnityEngine.Random.Range(volLowRange, volHighRange);
-                source.PlayOneShot(swordSlashClip, vol);
-                anim.SetTrigger("attacking");
-            }
-
-            // Activamos el collider a la mitad de la animación de ataque
-            if (attacking)
-            { // El normalized siempre resulta ser un ciclo entre 0 y 1 
-                float playbackTime = stateInfo.normalizedTime;
-
-                if (playbackTime > 0.33 && playbackTime < 0.66)
-                {
-                    attackCollider.enabled = true;
-                }
-                else
-                {
-                    attackCollider.enabled = false;
-                }
+                attackCollider.enabled = false;
             }
         }
+
     }
 
     void SlashAttack()
@@ -176,7 +184,7 @@ public class Player : MonoBehaviour
             movePrevent = true;
             chargedAttackTime += Time.deltaTime;
             anim.SetTrigger("loading");
-            if (chargedAttackTime > aura.getTimeBeforePlay())
+            if (chargedAttackTime >= aura.getTimeBeforePlay())
             {
                 aura.AuraStart();
             }
@@ -184,8 +192,6 @@ public class Player : MonoBehaviour
         else if (aura.IsLoaded() && !attacking && !PauseMenu.gameIsPaused)
         {
             chargedAttackTime = 0.0f;
-            float vol = UnityEngine.Random.Range(volLowRange, volHighRange);
-            source.PlayOneShot(swordSlashClip, vol);
             anim.SetTrigger("attacking");
 
             // Para que se mueva desde el principio tenemos que asignar un
@@ -206,7 +212,8 @@ public class Player : MonoBehaviour
 
             aura.AuraStop();
             StartCoroutine(EnableMovementAfter(0.4f));
-        } else
+        }
+        else
         {
             StartCoroutine(EnableMovementAfter(0.4f));
         }

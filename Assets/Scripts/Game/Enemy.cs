@@ -50,6 +50,14 @@ public class Enemy : MonoBehaviour
 
     void Update()
     {
+        if (PauseMenu.gameIsPaused)
+        {
+            anim.speed = 0.0f;
+        }
+        else
+        {
+            anim.speed = 1.0f;
+        }
         // Por defecto nuestro target siempre será nuestra posición inicial
         target = initialPosition;
 
@@ -96,9 +104,6 @@ public class Enemy : MonoBehaviour
 
                 ///-- Empezamos a atacar (importante una Layer en ataque para evitar Raycast)
                 if (!attacking) StartCoroutine(Attack(attackSpeed));
-            } else
-            {
-                anim.Play("Enemy_Walk", -1, 0);  // Congela la animación de andar
             }
         }
         // En caso contrario nos movemos hacia él
@@ -113,9 +118,6 @@ public class Enemy : MonoBehaviour
                 anim.SetFloat("movX", dir.x);
                 anim.SetFloat("movY", dir.y);
                 anim.SetBool("walking", true);
-            } else
-            {
-                anim.Play("Enemy_Walk", -1, 0);  // Congela la animación de andar
             }
         }
 
