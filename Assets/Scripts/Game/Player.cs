@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Assertions;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
@@ -32,11 +32,17 @@ public class Player : MonoBehaviour
     private float volLowRange = .5f;
     private float volHighRange = 1.0f;
 
+    public int maxHearts = 4;
+    public int startHearts = 3;
+    public int healthPerHeart = 4;
     ///--- Variables relacionadas con la vida
     [Tooltip("Puntos de vida")]
-    public int maxHp = 3;
+    public int currentMaxHp;
     [Tooltip("Vida actual")]
     public int hp;
+
+    public Image[] healthImages;
+    public Sprite[] healthSprite;
 
     void Awake()
     {
@@ -44,8 +50,55 @@ public class Player : MonoBehaviour
         Assert.IsNotNull(slashPrefab);
 
         source = GetComponent<AudioSource>();
+        currentMaxHp = startHearts * healthPerHeart;
+        hp = currentMaxHp;
+        checkHeartAmount();
+        UpdateHearts();
+    }
 
-        hp = maxHp;
+    void checkHeartAmount()
+    {
+        for (int i = 0; i < maxHearts; i++)
+        {
+            if (startHearts <= i)
+            {
+                healthImages[i].enabled = false;
+            }
+            else
+            {
+                healthImages[i].enabled = true;
+            }
+        }
+    }
+
+    void UpdateHearts()
+    {
+        bool empty = false;
+        int i = 0;
+
+        foreach (Image image in healthImages)
+        {
+            if (empty)
+            {
+                image.sprite = healthSprite[0];
+            }
+            else
+            {
+                i++;
+                if (hp >= i * healthPerHeart)
+                {
+                    image.sprite = healthSprite[healthSprite.Length - 1];
+                }
+                else
+                {
+                    int currentHeartHealth = (int)(healthPerHeart - (healthPerHeart * i - hp));
+                    int healthPerImage = healthPerHeart / (healthSprite.Length - 1);
+                    int imageIndex = currentHeartHealth / healthPerImage;
+                    image.sprite = healthSprite[imageIndex];
+                    empty = true;
+                }
+            }
+        }
     }
 
     void Start()
@@ -72,7 +125,8 @@ public class Player : MonoBehaviour
         if (PauseMenu.gameIsPaused)
         {
             anim.speed = 0.0f;
-        } else
+        }
+        else
         {
             anim.speed = 1.0f;
         }
@@ -149,14 +203,13 @@ public class Player : MonoBehaviour
         {
             chargedAttackTime = 0.0f;
             anim.SetTrigger("attacking");
+            float vol = UnityEngine.Random.Range(volLowRange, volHighRange);
+            source.PlayOneShot(swordSlashClip, vol);
         }
 
         // Activamos el collider a la mitad de la animación de ataque
         if (attacking && !PauseMenu.gameIsPaused)
         { // El normalized siempre resulta ser un ciclo entre 0 y 1 
-            float vol = UnityEngine.Random.Range(volLowRange, volHighRange);
-            source.PlayOneShot(swordSlashClip, vol);
-
             float playbackTime = stateInfo.normalizedTime;
 
             if (playbackTime > 0.33 && playbackTime < 0.66)
@@ -193,7 +246,8 @@ public class Player : MonoBehaviour
         {
             chargedAttackTime = 0.0f;
             anim.SetTrigger("attacking");
-
+            float vol = UnityEngine.Random.Range(volLowRange, volHighRange);
+            source.PlayOneShot(swordSlashClip, vol);
             // Para que se mueva desde el principio tenemos que asignar un
             // valor inicial al movX o movY en el edtitor distinto a cero
             float angle = Mathf.Atan2(
@@ -235,6 +289,11 @@ public class Player : MonoBehaviour
 
     public void Attacked()
     {
-        if (--hp <= 0) Destroy(gameObject);
+        hp--;
+        UpdateHearts();
+        if (hp <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
 }

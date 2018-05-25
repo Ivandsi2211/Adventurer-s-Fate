@@ -12,6 +12,18 @@ public class Area : MonoBehaviour
         anim = GetComponent<Animator>();
     }
 
+    void Update()
+    {
+        if (PauseMenu.gameIsPaused)
+        {
+            anim.speed = 0.0f;
+        }
+        else
+        {
+            anim.speed = 1.0f;
+        }
+    }
+
     public IEnumerator ShowArea(string name)
     {
         anim.Play("Area_Show");

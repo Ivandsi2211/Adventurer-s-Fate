@@ -31,6 +31,11 @@ TextureImporter:
     21300052: Aura_8
     21300054: Bush_Destroyed_4
     21300056: Enemy_Rock_1
+    21300058: HeartContainer_4
+    21300060: HeartContainer_3
+    21300062: HeartContainer_2
+    21300064: HeartContainer_1
+    21300066: HeartContainer_0
   externalObjects: {}
   serializedVersion: 5
   mipmaps:
@@ -679,13 +684,113 @@ TextureImporter:
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
       spriteID: b21fb13217eee734a9a733cd082fdda4
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HeartContainer_4
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 306
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 98afa12610fcfb849973009bcb3c8749
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HeartContainer_3
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 306
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a9cd6bf94de97f8408f4c96c7079f822
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HeartContainer_2
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 306
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce8121efb342ce3448fbcade95f6c197
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HeartContainer_1
+      rect:
+        serializedVersion: 2
+        x: 113
+        y: 306
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 029f853cc77a3a74eaaa18b8804f0e3f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HeartContainer_0
+      rect:
+        serializedVersion: 2
+        x: 129
+        y: 306
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8776ef18219e5c44690b004360609326
       vertices: []
       indices: 
       edges: []
