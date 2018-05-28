@@ -567,7 +567,7 @@ GameObject:
   - component: {fileID: 240665119}
   m_Layer: 0
   m_Name: Breakable Objects
-  m_TagString: Untagged
+  m_TagString: Breakable Objects
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -651,7 +651,7 @@ GameObject:
   - component: {fileID: 432394062}
   m_Layer: 0
   m_Name: Enemies
-  m_TagString: Untagged
+  m_TagString: Enemies
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -738,6 +738,170 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 450784386}
+--- !u!1001 &461835032
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1273374808}
+    m_Modifications:
+    - target: {fileID: 4791967602608764, guid: 66cee7c1611dc424e8a3d5f905f43b5d, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 9.29
+      objectReference: {fileID: 0}
+    - target: {fileID: 4791967602608764, guid: 66cee7c1611dc424e8a3d5f905f43b5d, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 9.99
+      objectReference: {fileID: 0}
+    - target: {fileID: 4791967602608764, guid: 66cee7c1611dc424e8a3d5f905f43b5d, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4791967602608764, guid: 66cee7c1611dc424e8a3d5f905f43b5d, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4791967602608764, guid: 66cee7c1611dc424e8a3d5f905f43b5d, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4791967602608764, guid: 66cee7c1611dc424e8a3d5f905f43b5d, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4791967602608764, guid: 66cee7c1611dc424e8a3d5f905f43b5d, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4791967602608764, guid: 66cee7c1611dc424e8a3d5f905f43b5d, type: 2}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1026246060388064, guid: 66cee7c1611dc424e8a3d5f905f43b5d, type: 2}
+      propertyPath: m_Name
+      value: Warp - Pueblo - Casa Jugador a Pueblo - Centro del Pueblo
+      objectReference: {fileID: 0}
+    - target: {fileID: 4610470811065920, guid: 66cee7c1611dc424e8a3d5f905f43b5d, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4791967602608764, guid: 66cee7c1611dc424e8a3d5f905f43b5d, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 1.7648212
+      objectReference: {fileID: 0}
+    - target: {fileID: 4791967602608764, guid: 66cee7c1611dc424e8a3d5f905f43b5d, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 0.61706996
+      objectReference: {fileID: 0}
+    - target: {fileID: 114230003994566360, guid: 66cee7c1611dc424e8a3d5f905f43b5d,
+        type: 2}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 486940009}
+    - target: {fileID: 114230003994566360, guid: 66cee7c1611dc424e8a3d5f905f43b5d,
+        type: 2}
+      propertyPath: targetMap
+      value: 
+      objectReference: {fileID: 1738352178}
+    - target: {fileID: 4791967602608764, guid: 66cee7c1611dc424e8a3d5f905f43b5d, type: 2}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 90
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 66cee7c1611dc424e8a3d5f905f43b5d, type: 2}
+  m_IsPrefabParent: 0
+--- !u!1 &461835033 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1026246060388064, guid: 66cee7c1611dc424e8a3d5f905f43b5d,
+    type: 2}
+  m_PrefabInternal: {fileID: 461835032}
+--- !u!4 &461835034 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4791967602608764, guid: 66cee7c1611dc424e8a3d5f905f43b5d,
+    type: 2}
+  m_PrefabInternal: {fileID: 461835032}
+--- !u!1001 &486940007
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1273374808}
+    m_Modifications:
+    - target: {fileID: 4791967602608764, guid: 66cee7c1611dc424e8a3d5f905f43b5d, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 11.88
+      objectReference: {fileID: 0}
+    - target: {fileID: 4791967602608764, guid: 66cee7c1611dc424e8a3d5f905f43b5d, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 9.77
+      objectReference: {fileID: 0}
+    - target: {fileID: 4791967602608764, guid: 66cee7c1611dc424e8a3d5f905f43b5d, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4791967602608764, guid: 66cee7c1611dc424e8a3d5f905f43b5d, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4791967602608764, guid: 66cee7c1611dc424e8a3d5f905f43b5d, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4791967602608764, guid: 66cee7c1611dc424e8a3d5f905f43b5d, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4791967602608764, guid: 66cee7c1611dc424e8a3d5f905f43b5d, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4791967602608764, guid: 66cee7c1611dc424e8a3d5f905f43b5d, type: 2}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1026246060388064, guid: 66cee7c1611dc424e8a3d5f905f43b5d, type: 2}
+      propertyPath: m_Name
+      value: Warp - Pueblo - Centro del Pueblo a Pueblo - Casa del Jugador
+      objectReference: {fileID: 0}
+    - target: {fileID: 4610470811065920, guid: 66cee7c1611dc424e8a3d5f905f43b5d, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -1.57
+      objectReference: {fileID: 0}
+    - target: {fileID: 4791967602608764, guid: 66cee7c1611dc424e8a3d5f905f43b5d, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 1.7447648
+      objectReference: {fileID: 0}
+    - target: {fileID: 4791967602608764, guid: 66cee7c1611dc424e8a3d5f905f43b5d, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 0.6170702
+      objectReference: {fileID: 0}
+    - target: {fileID: 114230003994566360, guid: 66cee7c1611dc424e8a3d5f905f43b5d,
+        type: 2}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 461835033}
+    - target: {fileID: 114230003994566360, guid: 66cee7c1611dc424e8a3d5f905f43b5d,
+        type: 2}
+      propertyPath: targetMap
+      value: 
+      objectReference: {fileID: 405301659}
+    - target: {fileID: 4791967602608764, guid: 66cee7c1611dc424e8a3d5f905f43b5d, type: 2}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 90
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 66cee7c1611dc424e8a3d5f905f43b5d, type: 2}
+  m_IsPrefabParent: 0
+--- !u!4 &486940008 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4791967602608764, guid: 66cee7c1611dc424e8a3d5f905f43b5d,
+    type: 2}
+  m_PrefabInternal: {fileID: 486940007}
+--- !u!1 &486940009 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1026246060388064, guid: 66cee7c1611dc424e8a3d5f905f43b5d,
+    type: 2}
+  m_PrefabInternal: {fileID: 486940007}
 --- !u!1 &488157467
 GameObject:
   m_ObjectHideFlags: 0
@@ -1441,7 +1605,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1692542624246738, guid: 24ddb0fce6fcc3946ae2c1f6a5352aa1, type: 2}
       propertyPath: m_Name
-      value: Pueblo - Jardin de Jugador
+      value: Pueblo - Mi Jardin
       objectReference: {fileID: 0}
     - target: {fileID: 1692542624246738, guid: 24ddb0fce6fcc3946ae2c1f6a5352aa1, type: 2}
       propertyPath: m_IsActive
@@ -1587,6 +1751,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1184492178}
+  - component: {fileID: 1184492179}
   m_Layer: 0
   m_Name: GameStatus
   m_TagString: Untagged
@@ -1607,6 +1772,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1184492179
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1184492177}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 712395fcaa1d96b42a173e9a18e0b085, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1190875930
 Prefab:
   m_ObjectHideFlags: 0
@@ -1755,6 +1931,8 @@ Transform:
   - {fileID: 1596815246}
   - {fileID: 1323930374}
   - {fileID: 2096529372}
+  - {fileID: 461835034}
+  - {fileID: 486940008}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2218,11 +2396,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4669100329532006, guid: 04580b2339f9c0647b530e46abe25d15, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1453844495196334, guid: 04580b2339f9c0647b530e46abe25d15, type: 2}
       propertyPath: m_Name
-      value: Casa de Jugador - Piso 2
+      value: Mi Casa - Piso 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 04580b2339f9c0647b530e46abe25d15, type: 2}
@@ -2814,6 +2992,58 @@ Transform:
   m_PrefabParentObject: {fileID: 4120836533278726, guid: 7b29d96794f52b046bca4c62e5b37469,
     type: 2}
   m_PrefabInternal: {fileID: 307093292}
+--- !u!1001 &1738352176
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1804184709}
+    m_Modifications:
+    - target: {fileID: 4501677014985406, guid: 27096b0635592854ea512294b83405af, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 11.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4501677014985406, guid: 27096b0635592854ea512294b83405af, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 21.14
+      objectReference: {fileID: 0}
+    - target: {fileID: 4501677014985406, guid: 27096b0635592854ea512294b83405af, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4501677014985406, guid: 27096b0635592854ea512294b83405af, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4501677014985406, guid: 27096b0635592854ea512294b83405af, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4501677014985406, guid: 27096b0635592854ea512294b83405af, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4501677014985406, guid: 27096b0635592854ea512294b83405af, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4501677014985406, guid: 27096b0635592854ea512294b83405af, type: 2}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 27096b0635592854ea512294b83405af, type: 2}
+  m_IsPrefabParent: 0
+--- !u!4 &1738352177 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4501677014985406, guid: 27096b0635592854ea512294b83405af,
+    type: 2}
+  m_PrefabInternal: {fileID: 1738352176}
+--- !u!1 &1738352178 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1938279435094984, guid: 27096b0635592854ea512294b83405af,
+    type: 2}
+  m_PrefabInternal: {fileID: 1738352176}
 --- !u!4 &1779496786 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4669100329532006, guid: 04580b2339f9c0647b530e46abe25d15,
@@ -2851,6 +3081,7 @@ Transform:
   m_Children:
   - {fileID: 1047389703}
   - {fileID: 405301661}
+  - {fileID: 1738352177}
   - {fileID: 1912602007}
   - {fileID: 1779496786}
   m_Father: {fileID: 0}
@@ -2971,7 +3202,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1042245753543404, guid: 95173ae2eca7adb478f213c53d711c81, type: 2}
       propertyPath: m_Name
-      value: Pueblo - Casa de Jugador
+      value: Pueblo - Mi Casa
       objectReference: {fileID: 0}
     - target: {fileID: 1042245753543404, guid: 95173ae2eca7adb478f213c53d711c81, type: 2}
       propertyPath: m_IsActive
@@ -3154,11 +3385,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4406343855745146, guid: ce5f4e6b83ce5e2468cf41d0f1277a4e, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1618659836555854, guid: ce5f4e6b83ce5e2468cf41d0f1277a4e, type: 2}
       propertyPath: m_Name
-      value: Casa de Jugador - Piso 1
+      value: Mi Casa - Piso 1
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_SortingLayerID

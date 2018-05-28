@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-using UnityEngine.EventSystems;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.IO;
 
 public class PauseMenuButton : MonoBehaviour
 {
@@ -63,16 +64,34 @@ public class PauseMenuButton : MonoBehaviour
                         }
                         else if (name == "SaveGame_Button")
                         {
-                            pauseMenu.Resume();
                             Debug.Log("SaveGame was pressed");
+
+                            BinaryFormatter bf = new BinaryFormatter();
+                            FileStream file = File.Open(Application.persistentDataPath + "/playerData.dat", FileMode.OpenOrCreate);
+                            
+                            GameObject player = GameObject.FindGameObjectWithTag("Player");
+
+                            GameData gameData = new GameData();
+                            gameData.currentMaxHp = player.GetComponent<Player>().currentMaxHp;
+                            gameData.hp = player.GetComponent<Player>().hp;
+                            gameData.playerPositionX = player.transform.position.x;
+                            gameData.playerPositionY = player.transform.position.y;
+                            gameData.playerInitialMap = player.GetComponent<Player>().initialMap.name;
+
+                            bf.Serialize(file, gameData);
+                            file.Close();
+                            
+                            pauseMenu.Resume();
                         }
                         else if (name == "MainMenuGame_Button")
                         {
+                            PlayerPrefs.SetInt("NeedsToLoad", 0);
                             pauseMenu.Resume();
                             SceneManager.LoadScene("Main", LoadSceneMode.Single);
                         }
                         else if (name == "ExitGame_Button")
                         {
+                            PlayerPrefs.SetInt("NeedsToLoad", 0);
                             pauseMenu.Resume();
 #if UNITY_EDITOR
                             // Application.Quit() does not work in the editor so

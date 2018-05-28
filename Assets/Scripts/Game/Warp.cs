@@ -51,6 +51,8 @@ public class Warp : MonoBehaviour
 
             // Actualizamos la posición y cámara, deshacemos transición y reactivamos los controles
             col.transform.position = target.transform.GetChild(0).transform.position;
+
+            GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().initialMap = targetMap;
             Camera.main.GetComponent<MainCamera>().SetBound(targetMap);
             FadeOut();
             col.GetComponent<Animator>().enabled = true;

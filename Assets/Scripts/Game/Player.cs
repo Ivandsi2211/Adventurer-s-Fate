@@ -71,7 +71,7 @@ public class Player : MonoBehaviour
         }
     }
 
-    void UpdateHearts()
+    public void UpdateHearts()
     {
         bool empty = false;
         int i = 0;

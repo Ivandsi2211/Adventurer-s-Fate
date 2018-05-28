@@ -65,6 +65,8 @@
     <Compile Include="Assets\Scripts\Game\Destroyable.cs" />
     <Compile Include="Assets\Scripts\Game\Enemy.cs" />
     <Compile Include="Assets\Scripts\Game\FixDepth.cs" />
+    <Compile Include="Assets\Scripts\Game\GameData.cs" />
+    <Compile Include="Assets\Scripts\Game\GameStatus.cs" />
     <Compile Include="Assets\Scripts\Game\MainCamera.cs" />
     <Compile Include="Assets\Scripts\Game\PauseMenu.cs" />
     <Compile Include="Assets\Scripts\Game\PauseMenuButton.cs" />
@@ -101,6 +103,7 @@
     <None Include="Assets\Tiled2Unity\Imported\Pueblo - Interior Casa Jugador - Piso 2.tiled2unity.xml" />
     <None Include="Assets\Tiled2Unity\Shaders\Tiled2Unity.cginc" />
     <None Include="Assets\Tiled2Unity\Tiled2Unity.export.txt" />
+    <None Include="Assets\Tiled2Unity\Imported\Pueblo - Centro del Pueblo.tiled2unity.xml" />
     <None Include="Assets\Tiled2Unity\Imported\Pueblo - Interior Casa Jugador - Piso 1.tiled2unity.xml" />
     <None Include="Assets\Tiled2Unity\Shaders\shaDepth.shader" />
     <None Include="Assets\Tiled2Unity\Shaders\shaDiffuseDepth.shader" />

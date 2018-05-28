@@ -77,14 +77,18 @@ public class MainMenuButton : MonoBehaviour
                     buttonSprite.color = colores[1];
                     if (name == "NewGame_Button")
                     {
+                        PlayerPrefs.SetInt("NeedsToLoad", 0);
                         SceneManager.LoadScene("Game", LoadSceneMode.Single);
                     }
                     else if (name == "LoadGame_Button")
                     {
                         Debug.Log("LoadGame was pressed");
+                        PlayerPrefs.SetInt("NeedsToLoad", 1);
+                        SceneManager.LoadScene("Game", LoadSceneMode.Single);
                     }
                     else if (name == "ExitGame_Button")
                     {
+                        PlayerPrefs.SetInt("NeedsToLoad", 0);
                         Debug.Log("Se cerrará el juego");
                         #if UNITY_EDITOR
                         // Application.Quit() does not work in the editor so

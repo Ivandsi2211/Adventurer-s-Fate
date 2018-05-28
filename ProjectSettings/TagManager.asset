@@ -8,6 +8,8 @@ TagManager:
   - Attack
   - Breakable Object
   - Enemy
+  - Enemies
+  - Breakable Objects
   layers:
   - Default
   - TransparentFX
