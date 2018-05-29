@@ -13,6 +13,8 @@ public class Enemy : MonoBehaviour
     // Variables relacionadas con el ataque
     [Tooltip("Prefab de la roca que se disparará")]
     public GameObject rockPrefab;
+    [Tooltip("Drop que es posible que suelte")]
+    public GameObject heartDrop;
     [Tooltip("Velocidad de ataque (segundos entre ataques)")]
     public float attackSpeed = 2f;
     bool attacking;
@@ -159,7 +161,17 @@ public class Enemy : MonoBehaviour
     ///--- Gestión del ataque, restamos una vida
     public void Attacked()
     {
-        if (--hp <= 0) Destroy(gameObject);
+        hp--;
+        if (hp <= 0)
+        {
+            Destroy(gameObject);
+            int randomNumber = Random.Range(0, 100) + 1;
+            if (randomNumber <= 75)
+            {
+                Instantiate(heartDrop, transform.position, transform.rotation);
+            }
+            
+        }
     }
 
     ///---  Dibujamos las vidas del enemigo en una barra 

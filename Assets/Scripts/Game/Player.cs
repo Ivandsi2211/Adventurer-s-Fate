@@ -296,4 +296,17 @@ public class Player : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+    public void Healed()
+    {
+        if(hp + 4 >= currentMaxHp)
+        {
+            hp = currentMaxHp;
+        }
+        else
+        {
+            hp += 4;
+        }
+        UpdateHearts();
+    }
 }

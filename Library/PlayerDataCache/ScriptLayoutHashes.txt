@@ -1,10 +1,11 @@
 WindowsStandalone
 PlayerPath?
-E:/AMS2/M13/Juego/Juego.exe
+E:/AMS2/M13/Juego - Adventurer's Fate/Juego - Adventurer's Fate.exe
 SceneListBegin?
 Assets/Scenes/Main.unity
 Assets/Scenes/Game.unity
 SceneListEnd?
+959784ad625f81c43aabd7ce43d7c7ff Assembly-CSharp.dll:.PauseMenuButton
 dd5481137759597d614818793c90a7fe Assembly-CSharp.dll:.Rock
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.Timeline.dll:UnityEngine.Timeline.ActivationPlayableAsset
 cf455f7a806648c6ed4c7d3e3f8a0e03 UnityEngine.Timeline.dll:UnityEngine.Timeline.ActivationTrack
@@ -18,7 +19,7 @@ ff05dcdf90651c3d98a9cad3df5e471e UnityEngine.Timeline.dll:UnityEngine.Timeline.C
 30afa8783a8bbee2e465ec9ce1efaee2 UnityEngine.Timeline.dll:UnityEngine.Timeline.GroupTrack
 30afa8783a8bbee2e465ec9ce1efaee2 UnityEngine.Timeline.dll:UnityEngine.Timeline.PlayableTrack
 607d64d2c4bc76ac9876e6f7b9cc7edf UnityEngine.Timeline.dll:UnityEngine.Timeline.TimelineAsset
-30019066ef5e04544862a280401cbb28 Assembly-CSharp.dll:.StartMenuController
+de387669b6bc2db7cd6236ae5fd24c02 Assembly-CSharp.dll:.StartMenuController
 76b67c157fc78f887e635d573c3b4839 Assembly-CSharp.dll:Tiled2Unity.GPUInstancing
 a35dc9cca2faebc5f5f1aeb9e8e47bbe UnityEngine.UI.dll:UnityEngine.UI.AspectRatioFitter
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.UI.dll:UnityEngine.EventSystems.BaseInput
@@ -127,11 +128,12 @@ bc68edb0af574bf79f9550ead8ebae5c UnityEngine.HoloLens.dll:UnityEngine.Audio.Audi
 463516d5b5fe8e67a0a24c48f2095b04 UnityEngine.HoloLens.dll:UnityEngine.EventSystems.HoloLensInputModule
 c2275a8bfbb9f9942cad75ecdfded41d UnityEngine.HoloLens.dll:UnityEngine.XR.WSA.SpatialMappingCollider
 45f3431f0103c41611e8d4eec3d439df UnityEngine.HoloLens.dll:UnityEngine.XR.WSA.SpatialMappingRenderer
+c862342ee18338dedb899480d12d1600 Assembly-CSharp.dll:.PauseMenu
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.Area
 c5b77decb97ffc0c36e810b155d27dde Assembly-CSharp.dll:Tiled2Unity.TiledMap
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.Attack
 f149f24230a6358c2804c5fae71459a2 Assembly-CSharp.dll:Tiled2Unity.TileAnimator
-09696fc11d7da504f14c2dc252bf42ab Assembly-CSharp.dll:.Player
+a768526cd2d0d140179391306b98504c Assembly-CSharp.dll:.Player
 fc1e0f4d8439d9928083474691511a13 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkAnimator
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.Networking.dll:UnityEngine.Networking.NetworkBehaviour
 60b2bb652410a5867a5ab9a01cd38461 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkDiscovery
@@ -169,10 +171,12 @@ c2275a8bfbb9f9942cad75ecdfded41d UnityEngine.HoloLens.dll:UnityEngine.XR.WSA.Spa
 8ff8e4f2fdfb53cf0cef85f24f6f7740 Assembly-CSharp.dll:Tiled2Unity.TileLayer
 9de3a22eca9aefadba2d10d5987cefe3 UnityEngine.SpatialTracking.dll:UnityEngine.SpatialTracking.TrackedPoseDriver
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:Tiled2Unity.SortingLayerExposed
+05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.GameStatus
 b6a4e0f46582e1b4ea27adb53405c4c7 Assembly-CSharp.dll:Tiled2Unity.SpriteDepthInMap
 d290070ecf091336e70150a7db25d112 Assembly-CSharp.dll:Tiled2Unity.ObjectLayer
 9f19bf78c67feb0e37cdd37308296c2c Assembly-CSharp.dll:.MainMenuButtonController
-718421ed9f46fffdc43249bd6569f470 Assembly-CSharp.dll:.Enemy
+5dd08c7125bc142e2c6b6410ff7ea6b2 Assembly-CSharp.dll:.Enemy
 4aa84c05727962c1f94593c37bf1abf7 Assembly-CSharp.dll:.Slash
 2e1d36a4f638f1a9b4ebc3eef3f298b9 Assembly-CSharp.dll:.GameStates
 329bcbf88b3c0197d230f5b9ceb88333 Assembly-CSharp.dll:Tiled2Unity.TmxObject
+8e578d5bef438be95ede70f28386b9ff Assembly-CSharp.dll:.HeartDrop
